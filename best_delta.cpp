@@ -16,12 +16,11 @@ namespace command_line {
 int main( int argc, char ** argv ) {
     command_line::parse( cmdline::args(argc, argv) );
 
-    cv::Mat left = cv::imread( command_line::left, CV_LOAD_IMAGE_COLOR );
-    cv::Mat right = cv::imread( command_line::right, CV_LOAD_IMAGE_COLOR );
+    cv::Mat left = cv::imread( command_line::left, CV_LOAD_IMAGE_GRAYSCALE );
+    cv::Mat right = cv::imread( command_line::right, CV_LOAD_IMAGE_GRAYSCALE );
 
     const char * window = "Best delta";
     cv::namedWindow( window, cv::WINDOW_NORMAL );
     cv::imshow( window, best_delta(left, right, 7) );
     cv::waitKey();
-
 }

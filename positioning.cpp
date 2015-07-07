@@ -1,20 +1,20 @@
+#include <algorithm>
 #include "positioning.h"
 
 namespace {
 
-    int sqnorm( cv::Vec3b d ) {
-        return d[0]*d[0] + d[1]*d[1] + d[2]*d[2];
-    }
-
-    long unsigned squared_delta( cv::Mat left, cv::Mat right ) {
+    long unsigned delta( cv::Mat left, cv::Mat right ) {
         long unsigned sum = 0;
-        for( auto it = left.begin<cv::Vec3b>(), jt = right.begin<cv::Vec3b>();
-                it != left.end<cv::Vec3b>() && jt != right.end<cv::Vec3b>();
-                ++it, ++jt
-            )
-        {
-            sum += sqnorm( *it - *jt );
-        }
+        for( int i = 0; i < left.rows; i++ )
+            for( auto ptr = left.ptr<unsigned char>(i),
+                    pts = right.ptr<unsigned char>(i);
+                    ptr != left.ptr<unsigned char>(i) + left.cols;
+                    ++ptr, ++pts
+                )
+            {
+                sum += std::abs( *ptr - *pts );
+            }
+
         return sum;
     }
 
@@ -31,12 +31,12 @@ cv::Mat best_delta( cv::Mat lhs, cv::Mat rhs, int lim ) {
     for( int j = 0; j < lim; j++ ) {
         cv::Mat subleft = lhs( cv::Range(0, height - i), cv::Range(0, width - j) );
         cv::Mat subright = rhs( cv::Range(i, height), cv::Range(j, width) );
-        auto diff = squared_delta( subleft, subright );
+        auto diff = delta( subleft, subright );
         if( diff < min ) {
             min = diff;
             best_subleft = subleft;
             best_subright = subright;
         }
     }
-    return best_subleft - best_subright;
+    return cv::abs(best_subleft - best_subright);
 }
