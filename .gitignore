@@ -1,0 +1,8 @@
+# Dependency management
+*.dep.mk
+
+# Vim temporaries
+.*.swp
+
+# Compiled binaries
+*.o
