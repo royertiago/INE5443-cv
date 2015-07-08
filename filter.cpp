@@ -31,15 +31,31 @@ namespace command_line {
             1, 1, 0, 1, 1,
             1, 1, 1, 1, 1,
             1, 1, 1, 1, 1);
+    cv::Mat z48 = (cv::Mat_<unsigned char>(7,7) <<
+            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 0, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1);
     cv::Mat fat_plus = (cv::Mat_<unsigned char>(5,5) <<
             0, 1, 1, 1, 0,
             1, 1, 1, 1, 1,
             1, 1, 0, 1, 1,
             1, 1, 1, 1, 1,
             0, 1, 1, 1, 0);
-    cv::Mat horiz = (cv::Mat_<unsigned char>(1,3) <<
+    cv::Mat h = (cv::Mat_<unsigned char>(1,3) <<
             1, 0, 1);
-    cv::Mat vert = (cv::Mat_<unsigned char>(3,1) <<
+    cv::Mat H = (cv::Mat_<unsigned char>(3,3) <<
+            1, 0, 1,
+            1, 0, 1,
+            1, 0, 1);
+    cv::Mat v = (cv::Mat_<unsigned char>(3,1) <<
+            1, 0, 1);
+    cv::Mat V = (cv::Mat_<unsigned char>(3,3) <<
+            1, 0, 1,
+            1, 0, 1,
             1, 0, 1);
 
     operation op;
@@ -76,12 +92,18 @@ namespace command_line {
                     ref = z4;
                 else if( arg == "Z24" || arg == "z24" )
                     ref = z24;
+                else if( arg == "Z48" || arg == "z48" )
+                    ref = z48;
                 else if( arg == "fatplus" || arg == "fat-plus" )
                     ref = fat_plus;
-                else if( arg == "h" || arg == "H" || arg == "horiz" )
-                    ref = horiz;
-                else if( arg == "v" || arg == "V" || arg == "vert" )
-                    ref = vert;
+                else if( arg == "h" )
+                    ref = h;
+                else if( arg == "H" )
+                    ref = H;
+                else if( arg == "v" )
+                    ref = v;
+                else if( arg == "V" )
+                    ref = V;
                 else {
                     std::cerr << "Unknown kernel " << arg << '\n';
                     std::exit(1);
