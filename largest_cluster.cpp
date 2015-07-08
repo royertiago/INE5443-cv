@@ -5,7 +5,7 @@
  * (with dimensions about the square root of the input dimensions)
  * and computes the highest cluster value.
  * Then, it generates the smallest image than contains
- * all the clusters whose size is greater than half the highest cluster.
+ * the largest connected group of clusters.
  */
 #include <algorithm>
 #include <iostream>
@@ -100,7 +100,7 @@ cv::Mat best_array( cv::Mat img ) {
         if( map[i][j] == group_number ) {
             imin = std::min( imin, i );
             imax = std::max( imax, i+1 );
-            jmin = std::min( jmin, i );
+            jmin = std::min( jmin, j );
             jmax = std::max( jmax, j+1 );
         }
     }
