@@ -7,6 +7,7 @@
 # Regeneratable output
 neural_net_filenames.txt
 nn_train/*
+neural.net
 
 # Compiled binaries
 *.o
@@ -15,3 +16,4 @@ show
 thresholding
 largest_cluster
 resize
+train_neural_net
