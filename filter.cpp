@@ -19,43 +19,43 @@ namespace command_line {
 
     cv::Mat z4 = (cv::Mat_<unsigned char>(3,3) <<
             0, 1, 0,
-            1, 0, 1,
+            1, 1, 1,
             0, 1, 0);
     cv::Mat z8 = (cv::Mat_<unsigned char>(3,3) <<
             1, 1, 1,
-            1, 0, 1,
+            1, 1, 1,
             1, 1, 1);
     cv::Mat z24 = (cv::Mat_<unsigned char>(5,5) <<
             1, 1, 1, 1, 1,
             1, 1, 1, 1, 1,
-            1, 1, 0, 1, 1,
+            1, 1, 1, 1, 1,
             1, 1, 1, 1, 1,
             1, 1, 1, 1, 1);
     cv::Mat z48 = (cv::Mat_<unsigned char>(7,7) <<
             1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 0, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1);
     cv::Mat fat_plus = (cv::Mat_<unsigned char>(5,5) <<
             0, 1, 1, 1, 0,
             1, 1, 1, 1, 1,
-            1, 1, 0, 1, 1,
+            1, 1, 1, 1, 1,
             1, 1, 1, 1, 1,
             0, 1, 1, 1, 0);
     cv::Mat h = (cv::Mat_<unsigned char>(1,3) <<
-            1, 0, 1);
+            1, 1, 1);
     cv::Mat H = (cv::Mat_<unsigned char>(3,3) <<
             1, 0, 1,
-            1, 0, 1,
+            1, 1, 1,
             1, 0, 1);
     cv::Mat v = (cv::Mat_<unsigned char>(3,1) <<
-            1, 0, 1);
+            1, 1, 1);
     cv::Mat V = (cv::Mat_<unsigned char>(3,3) <<
             1, 0, 1,
-            1, 0, 1,
+            1, 1, 1,
             1, 0, 1);
 
     operation op;
