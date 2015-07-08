@@ -4,6 +4,10 @@
 # Vim temporaries
 .*.swp
 
+# Regeneratable output
+neural_net_filenames.txt
+nn_train/*
+
 # Compiled binaries
 *.o
 best_delta
