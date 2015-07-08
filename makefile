@@ -19,7 +19,7 @@ endef
 # that include several files.
 CXXFLAGS ?= -g
 ALL_CXXFLAGS := $(CXXFLAGS) -std=c++1y -iquote./ $$(pkg-config opencv --cflags)
-ALL_LDFLAGS += $$(pkg-config opencv --libs) $(LDFLAGS)
+ALL_LDFLAGS += $$(pkg-config opencv fann --libs) $(LDFLAGS)
 
 # Directories whose makefiles need to be included
 submakefiles := $(wildcard */makefile.mk)
