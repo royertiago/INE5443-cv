@@ -47,16 +47,8 @@ namespace command_line {
             0, 1, 1, 1, 0);
     cv::Mat h = (cv::Mat_<unsigned char>(1,3) <<
             1, 1, 1);
-    cv::Mat H = (cv::Mat_<unsigned char>(3,3) <<
-            1, 0, 1,
-            1, 1, 1,
-            1, 0, 1);
     cv::Mat v = (cv::Mat_<unsigned char>(3,1) <<
             1, 1, 1);
-    cv::Mat V = (cv::Mat_<unsigned char>(3,3) <<
-            1, 0, 1,
-            1, 1, 1,
-            1, 0, 1);
 
     operation op;
     cv::Mat kernel = z8;
@@ -98,12 +90,8 @@ namespace command_line {
                     ref = fat_plus;
                 else if( arg == "h" )
                     ref = h;
-                else if( arg == "H" )
-                    ref = H;
                 else if( arg == "v" )
                     ref = v;
-                else if( arg == "V" )
-                    ref = V;
                 else {
                     std::cerr << "Unknown kernel " << arg << '\n';
                     std::exit(1);
