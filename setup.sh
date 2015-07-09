@@ -1,8 +1,6 @@
 #!/bin/bash
 
-format() {
-    ./thresholding | ./largest_cluster | ./resize
-}
+source process.sh
 
 echo Generating train dataset...
 ./best_delta img/branquinha1pb.jpg img/porta1pb.jpg | format > nn_train/dog1.png
