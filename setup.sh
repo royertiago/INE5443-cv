@@ -4,6 +4,7 @@ format() {
     ./thresholding | ./largest_cluster | ./resize
 }
 
+echo Generating train dataset...
 ./best_delta img/branquinha1pb.jpg img/porta1pb.jpg | format > nn_train/dog1.png
 ./best_delta img/branquinha2pb.jpg img/porta1pb.jpg | format > nn_train/dog2.png
 ./best_delta img/branquinha3pb.jpg img/porta1pb.jpg | format > nn_train/dog3.png
@@ -20,6 +21,7 @@ format() {
 ./best_delta img/porta1pb.jpg img/porta2pb.jpg | format > nn_train/nothing1.png
 ./best_delta img/porta2pb.jpg img/porta1pb.jpg | format > nn_train/nothing2.png
 
+echo Training network...
 (
     for file in nn_train/dog*; do
         echo $file
@@ -32,4 +34,6 @@ format() {
     for file in nn_train/nothing*; do
         echo $file
     done
-) > neural_net_filenames.txt
+) | ./train_neural_net
+
+echo Done.
