@@ -1,3 +1,9 @@
+/* Program that reads two images from the command line
+ * and writes the absolute difference between them to stdout.
+ *
+ * This program will try to reposition the second image
+ * to reduce the total delta.
+ */
 #include <string>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>

@@ -1,3 +1,7 @@
+/* Program that reads an 10x10 image from stdin
+ * and, based on the neural network in the file neural.net,
+ * writes how close to a dog or an human this input is.
+ */
 #include <iostream>
 #include <opencv2/highgui/highgui.hpp>
 #include <fann.h>
