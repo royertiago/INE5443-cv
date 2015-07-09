@@ -46,3 +46,13 @@ to simulate a detection against to the image `img/larapiopb.jpg`, for example,
 run
 
     ./identify.sh img/larapiopb.sh
+
+Repository Structure
+====================
+
+Most programs were designed to work in a shell pipeline;
+they read images from stdin,
+process them,
+and write to stdout.
+
+See overview.sh for an overview of the tools.
